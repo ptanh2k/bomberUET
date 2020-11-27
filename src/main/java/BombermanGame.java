@@ -1,7 +1,7 @@
 import entities.Bomber;
 import entities.Entity;
-import entities.Grass;
-import entities.Wall;
+import entities.blocks.Grass;
+import entities.blocks.Wall;
 import graphic.Sprite;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;

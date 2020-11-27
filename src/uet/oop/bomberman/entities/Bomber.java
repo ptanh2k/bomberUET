@@ -73,8 +73,8 @@ public class Bomber extends Entity {
         return numBombs;
     }
 
-    public void setBombs(List<Bomb> bombs) {
-        this.bombs = bombs;
+    public void setNumBombs(int numBombs) {
+        this.numBombs = numBombs;
     }
 
     public int getFlameLength() {

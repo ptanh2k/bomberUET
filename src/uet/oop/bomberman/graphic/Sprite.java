@@ -53,7 +53,7 @@ public class Sprite {
 	| Board sprites
 	|--------------------------------------------------------------------------
 	 */
-    public static Sprite portal = new Sprite(DEFAULT_SIZE, 4, 0, SpriteSheet.tiles, 16, 16);
+    public static Sprite portal = new Sprite(DEFAULT_SIZE, 4, 0, SpriteSheet.tiles, 14, 14);
     public static Sprite wall = new Sprite(DEFAULT_SIZE, 5, 0, SpriteSheet.tiles, 16, 16);
     public static Sprite grass = new Sprite(DEFAULT_SIZE, 6, 0, SpriteSheet.tiles, 16, 16);
     public static Sprite brick = new Sprite(DEFAULT_SIZE, 7, 0, SpriteSheet.tiles, 16, 16);
@@ -63,24 +63,24 @@ public class Sprite {
 	| Bomber Sprites
 	|--------------------------------------------------------------------------
 	 */
-    public static Sprite bomber_look_up = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_look_right = new Sprite(DEFAULT_SIZE, 1, 0, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_look_down = new Sprite(DEFAULT_SIZE, 2, 0, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_look_left = new Sprite(DEFAULT_SIZE, 3, 0, SpriteSheet.tiles, 14, 16);
+    public static Sprite bomber_look_up = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles, 12, 16);
+    public static Sprite bomber_look_right = new Sprite(DEFAULT_SIZE, 1, 0, SpriteSheet.tiles, 10, 16);
+    public static Sprite bomber_look_down = new Sprite(DEFAULT_SIZE, 2, 0, SpriteSheet.tiles, 12, 15);
+    public static Sprite bomber_look_left = new Sprite(DEFAULT_SIZE, 3, 0, SpriteSheet.tiles, 10, 15);
 
-    public static Sprite bomber_move_up1 = new Sprite(DEFAULT_SIZE, 0, 1, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_move_right1 = new Sprite(DEFAULT_SIZE, 1, 1, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_move_down1 = new Sprite(DEFAULT_SIZE, 2, 1, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_move_left1 = new Sprite(DEFAULT_SIZE, 3, 1, SpriteSheet.tiles, 14, 16);
+    public static Sprite bomber_move_up1 = new Sprite(DEFAULT_SIZE, 0, 1, SpriteSheet.tiles, 12, 16);
+    public static Sprite bomber_move_right1 = new Sprite(DEFAULT_SIZE, 1, 1, SpriteSheet.tiles, 11, 16);
+    public static Sprite bomber_move_down1 = new Sprite(DEFAULT_SIZE, 2, 1, SpriteSheet.tiles, 12, 15);
+    public static Sprite bomber_move_left1 = new Sprite(DEFAULT_SIZE, 3, 1, SpriteSheet.tiles, 11, 16);
 
-    public static Sprite bomber_move_up2 = new Sprite(DEFAULT_SIZE, 0, 2, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_move_right2 = new Sprite(DEFAULT_SIZE, 1, 2, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_move_down2 = new Sprite(DEFAULT_SIZE, 2, 2, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_move_left2 = new Sprite(DEFAULT_SIZE, 3, 2, SpriteSheet.tiles, 14, 16);
+    public static Sprite bomber_move_up2 = new Sprite(DEFAULT_SIZE, 0, 2, SpriteSheet.tiles, 12, 15);
+    public static Sprite bomber_move_right2 = new Sprite(DEFAULT_SIZE, 1, 2, SpriteSheet.tiles, 12, 16);
+    public static Sprite bomber_move_down2 = new Sprite(DEFAULT_SIZE, 2, 2, SpriteSheet.tiles, 12, 16);
+    public static Sprite bomber_move_left2 = new Sprite(DEFAULT_SIZE, 3, 2, SpriteSheet.tiles, 12, 16);
 
     public static Sprite bomber_die = new Sprite(DEFAULT_SIZE, 4, 2, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_die1 = new Sprite(DEFAULT_SIZE, 5, 2, SpriteSheet.tiles, 14, 16);
-    public static Sprite bomber_die2 = new Sprite(DEFAULT_SIZE, 6, 2, SpriteSheet.tiles, 14, 16);
+    public static Sprite bomber_die1 = new Sprite(DEFAULT_SIZE, 5, 2, SpriteSheet.tiles, 13, 15);
+    public static Sprite bomber_die2 = new Sprite(DEFAULT_SIZE, 6, 2, SpriteSheet.tiles, 16, 16);
 
     /*
 	|--------------------------------------------------------------------------
@@ -88,27 +88,27 @@ public class Sprite {
 	|--------------------------------------------------------------------------
 	 */
     //BALLOM
-    public static Sprite baloom_left1 = new Sprite(DEFAULT_SIZE, 10, 0, SpriteSheet.tiles, 12, 13);
-    public static Sprite baloom_left2 = new Sprite(DEFAULT_SIZE, 10, 1, SpriteSheet.tiles, 12, 13);
-    public static Sprite baloom_left3 = new Sprite(DEFAULT_SIZE, 10, 2, SpriteSheet.tiles, 12, 13);
+    public static Sprite baloom_left1 = new Sprite(DEFAULT_SIZE, 9, 0, SpriteSheet.tiles, 16, 16);
+    public static Sprite baloom_left2 = new Sprite(DEFAULT_SIZE, 9, 1, SpriteSheet.tiles, 16, 16);
+    public static Sprite baloom_left3 = new Sprite(DEFAULT_SIZE, 9, 2, SpriteSheet.tiles, 16, 16);
 
-    public static Sprite baloom_right1 = new Sprite(DEFAULT_SIZE, 11, 0, SpriteSheet.tiles, 12, 13);
-    public static Sprite baloom_right2 = new Sprite(DEFAULT_SIZE, 11, 1, SpriteSheet.tiles, 12, 13);
-    public static Sprite baloom_right3 = new Sprite(DEFAULT_SIZE, 11, 2, SpriteSheet.tiles, 12, 13);
+    public static Sprite baloom_right1 = new Sprite(DEFAULT_SIZE, 10, 0, SpriteSheet.tiles, 16, 16);
+    public static Sprite baloom_right2 = new Sprite(DEFAULT_SIZE, 10, 1, SpriteSheet.tiles, 16, 16);
+    public static Sprite baloom_right3 = new Sprite(DEFAULT_SIZE, 10, 2, SpriteSheet.tiles, 16, 16);
 
-    public static Sprite baloom_die = new Sprite(DEFAULT_SIZE, 10, 3, SpriteSheet.tiles, 12, 13);
+    public static Sprite baloom_die = new Sprite(DEFAULT_SIZE, 9, 3, SpriteSheet.tiles, 16, 16);
 
 
     //ONEAL
-    public static Sprite oneal_left1 = new Sprite(DEFAULT_SIZE, 11, 0, SpriteSheet.tiles, 12, 13);
-    public static Sprite oneal_left2 = new Sprite(DEFAULT_SIZE, 11, 1, SpriteSheet.tiles, 12, 13);
-    public static Sprite oneal_left3 = new Sprite(DEFAULT_SIZE, 11, 2, SpriteSheet.tiles, 12, 13);
+    public static Sprite oneal_left1 = new Sprite(DEFAULT_SIZE, 11, 0, SpriteSheet.tiles, 16, 16);
+    public static Sprite oneal_left2 = new Sprite(DEFAULT_SIZE, 11, 1, SpriteSheet.tiles, 16, 16);
+    public static Sprite oneal_left3 = new Sprite(DEFAULT_SIZE, 11, 2, SpriteSheet.tiles, 16, 16);
 
-    public static Sprite oneal_right1 = new Sprite(DEFAULT_SIZE, 12, 0, SpriteSheet.tiles, 12, 13);
-    public static Sprite oneal_right2 = new Sprite(DEFAULT_SIZE, 12, 1, SpriteSheet.tiles, 12, 13);
-    public static Sprite oneal_right3 = new Sprite(DEFAULT_SIZE, 12, 2, SpriteSheet.tiles, 12, 13);
+    public static Sprite oneal_right1 = new Sprite(DEFAULT_SIZE, 12, 0, SpriteSheet.tiles, 16, 16);
+    public static Sprite oneal_right2 = new Sprite(DEFAULT_SIZE, 12, 1, SpriteSheet.tiles, 16, 16);
+    public static Sprite oneal_right3 = new Sprite(DEFAULT_SIZE, 12, 2, SpriteSheet.tiles, 16, 16);
 
-    public static Sprite oneal_die = new Sprite(DEFAULT_SIZE, 11, 3, SpriteSheet.tiles, 12, 13);
+    public static Sprite oneal_die = new Sprite(DEFAULT_SIZE, 11, 3, SpriteSheet.tiles, 16, 16);
 
     //MINVO
 

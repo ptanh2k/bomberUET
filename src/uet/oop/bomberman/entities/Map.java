@@ -21,58 +21,56 @@ public class Map {
             String path = "resources/levels/Level" + level + ".txt";
             File file = new File(path);
             FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line = bufferedReader.readLine().trim();
+            BufferedReader buffReader = new BufferedReader(fileReader);
+            String line = buffReader.readLine().trim();
             String[] str = line.split(" ");
             BombermanGame.HEIGHT = Integer.parseInt(str[1]);
             BombermanGame.WIDTH = Integer.parseInt(str[2]);
             char [][] maps = new char[BombermanGame.HEIGHT][BombermanGame.WIDTH];
 
             for (int i = 0; i < BombermanGame.HEIGHT; ++i) {
+                line = buffReader.readLine();
                 for (int j = 0; j < BombermanGame.WIDTH; ++j) {
                     maps[i][j] = line.charAt(j);
                 }
             }
 
-            for (int i = 0; i < BombermanGame.HEIGHT; ++i) {
-                for (int j = 0; j <BombermanGame.WIDTH; ++j) {
-                    Entity object;
+            for (int i = 0; i < BombermanGame.WIDTH; ++i) {
+                for (int j = 0 ; j < BombermanGame.HEIGHT; ++j) {
                     Brick brick;
+                    Entity object;
                     Balloom balloom;
                     Oneal oneal;
-
-                    //Create wall and grass
-                    if (j == 0 || j == BombermanGame.HEIGHT - 1 || i == 0 || i == BombermanGame.WIDTH - 1 || maps[i][j] == '#') {
+                    // create wall and grass
+                    if (j == 0 || j == BombermanGame.HEIGHT - 1 || i == 0 || i == BombermanGame.WIDTH - 1 || maps[j][i] == '#') {
                         object = new Wall(i, j, Sprite.wall.getFxImage());
-                        EntityArr.walls.add((Wall) object);
+                        EntityArr.walls.add(object);
                     } else {
                         object = new Grass(i, j, Sprite.grass.getFxImage());
-                        EntityArr.grasses.add((Grass) object);
+                        EntityArr.grasses.add(object);
                     }
-
-                    //Create portal
+                    // create portal
                     if (maps[j][i] == 'x') {
                         object = new Portal(i, j, Sprite.portal.getFxImage());
-                        EntityArr.portals.add((Portal) object);
+                        EntityArr.grasses.add(object);
                     }
-
-                    //Create brick
+                    // create brick
                     if (maps[j][i] == 'x' || maps[j][i] == '*') {
                         brick = new Brick(i, j, Sprite.brick.getFxImage());
                         EntityArr.bricks.add(brick);
                     } else if (maps[j][i] == '1') {
-                        balloom = new Balloom(i, j, Sprite.baloom_right1.getFxImage());
+                        balloom = new Balloom(i, j, Sprite.baloom_left1.getFxImage());
                         EntityArr.balloms.add(balloom);
-                    } else if (maps[i][j] == '2') {
+                    } else if (maps[j][i] == '2') {
                         oneal = new Oneal(i, j, Sprite.oneal_right1.getFxImage());
                         EntityArr.oneals.add(oneal);
                     }
                 }
             }
             fileReader.close();
-            bufferedReader.close();
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
+            buffReader.close();
+        } catch (Exception exception) {
+            System.out.println("Error: " + exception);
         }
     }
 }

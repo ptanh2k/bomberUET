@@ -16,7 +16,7 @@ import java.io.FileReader;
 public class Map {
 
     public static void createMapByLevel(int level) {
-        uet.oop.bomberman.entities.EntityArr.bombers.add(uet.oop.bomberman.entities.EntityArr.bomberman);
+        EntityArr.bombers.add(EntityArr.bomberman);
         try {
             String path = "resources/levels/Level" + level + ".txt";
             File file = new File(path);
@@ -28,14 +28,14 @@ public class Map {
             BombermanGame.WIDTH = Integer.parseInt(str[2]);
             char [][] maps = new char[BombermanGame.HEIGHT][BombermanGame.WIDTH];
 
-            for (int i = 0; i < BombermanGame.HEIGHT; i++) {
-                for (int j = 0; j < BombermanGame.WIDTH; j++) {
+            for (int i = 0; i < BombermanGame.HEIGHT; ++i) {
+                for (int j = 0; j < BombermanGame.WIDTH; ++j) {
                     maps[i][j] = line.charAt(j);
                 }
             }
 
-            for (int i = 0; i < BombermanGame.HEIGHT; i++) {
-                for (int j = 0; j <BombermanGame.WIDTH; j++) {
+            for (int i = 0; i < BombermanGame.HEIGHT; ++i) {
+                for (int j = 0; j <BombermanGame.WIDTH; ++j) {
                     Entity object;
                     Brick brick;
                     Balloom balloom;

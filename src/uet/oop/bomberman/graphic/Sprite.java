@@ -12,7 +12,7 @@ public class Sprite {
     protected int _realHeight;
 
     private int _x, _y;
-    private SpriteSheet _sheet;
+    private uet.oop.bomberman.graphic.SpriteSheet _sheet;
 
     private static final int TRANSPARENT_COLOR = 0xffff00ff;
 

@@ -46,7 +46,7 @@ public class Bomber extends Entity {
 
     public void goDown() {
         this.y += this.speed;
-        if (checkBounds()) this.x -= this.speed;
+        if (checkBounds()) this.y -= this.speed;
         checkBounds();
         setImg(Sprite.movingSprite(Sprite.bomber_look_down, Sprite.bomber_move_down1, Sprite.bomber_move_down2, this.getX(), Sprite.DEFAULT_SIZE).getFxImage());
     }

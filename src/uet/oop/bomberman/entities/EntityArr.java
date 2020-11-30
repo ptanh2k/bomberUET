@@ -31,7 +31,7 @@ public class EntityArr {
         }
         while (onealIterator.hasNext()) {
             Oneal oneal = onealIterator.next();
-            if (!oneal.isAlive()) balloomIterator.remove();
+            if (!oneal.isAlive()) onealIterator.remove();
         }
     }
 }

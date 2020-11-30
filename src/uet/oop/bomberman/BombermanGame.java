@@ -15,6 +15,7 @@ import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.enemy.Balloom;
 import uet.oop.bomberman.entities.enemy.Oneal;
 import uet.oop.bomberman.graphic.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 import java.util.Iterator;
 import java.util.Timer;
@@ -31,6 +32,7 @@ public class BombermanGame extends Application {
 //    Bomber bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage());
 
     public static void main(String[] args) {
+        Sound.play("soundtrack");
         Application.launch(BombermanGame.class);
     }
 

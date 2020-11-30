@@ -12,7 +12,7 @@ public class Balloom extends Enemy {
     @Override
     public void update() {
         if (isAlive()) {
-            if (checkBounds()) {
+            if (checkBounds() || checkBoundsBomb()) {
                 this.setSpeed(getSpeed() * (-1));
             }
 

@@ -70,11 +70,13 @@ public abstract class Entity {
         for (Entity e : EntityArr.bricks) {
             if (this.intersects(e)) return true;
         }
+        return false;
+    }
 
+    public boolean checkBoundsBomb() {
         for (Entity e : EntityArr.bomberman.bombs) {
             if (this.intersects(e)) return true;
-
         }
-            return false;
+        return false;
     }
 }

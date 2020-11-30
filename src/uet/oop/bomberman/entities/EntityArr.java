@@ -1,6 +1,7 @@
 package uet.oop.bomberman.entities;
 
 import uet.oop.bomberman.entities.blocks.Brick;
+import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.entities.enemy.Balloom;
 import uet.oop.bomberman.entities.enemy.Oneal;
 import uet.oop.bomberman.entities.item.Item;
@@ -20,7 +21,7 @@ public class EntityArr {
     public static List<Oneal> oneals = new ArrayList<>();
     public static List<Item> items = new ArrayList<>();
     public static Bomber bomberman = new Bomber(1, 1, Sprite.bomber_look_right.getFxImage());
-//    public static List<Flame> flames = new ArrayList<>();
+    public static List<Flame> flames = new ArrayList<>();
 
     public static void removeEnemy() {
         Iterator<Balloom> balloomIterator = balloms.listIterator();

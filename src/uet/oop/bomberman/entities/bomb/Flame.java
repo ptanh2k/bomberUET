@@ -1,6 +1,7 @@
 package uet.oop.bomberman.entities.bomb;
 
 import javafx.scene.image.Image;
+import uet.oop.bomberman.entities.Bomber;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntityArr;
 import uet.oop.bomberman.entities.blocks.Brick;
@@ -53,6 +54,14 @@ public abstract class Flame extends Entity {
             }
         }
         for (Oneal b : EntityArr.oneals) {
+            if (this.intersects(b)) {
+                b.setAlive(false);
+            }
+        }
+    }
+
+    protected void checkBomber() {
+        for (Bomber b : EntityArr.bombers) {
             if (this.intersects(b)) {
                 b.setAlive(false);
             }

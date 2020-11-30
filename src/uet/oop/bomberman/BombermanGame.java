@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
+import uet.oop.bomberman.entities.Bomber;
 import uet.oop.bomberman.entities.Map;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntityArr;
@@ -122,7 +123,7 @@ public class BombermanGame extends Application {
 
     // update
     public void update() {
-        EntityArr.bombers.forEach(Entity::update);
+        EntityArr.bombers.forEach(Bomber::update);
         EntityArr.balloms.forEach(Balloom::update);
         EntityArr.oneals.forEach(Oneal::update);
         EntityArr.bomberman.bombs.forEach(Bomb::update);

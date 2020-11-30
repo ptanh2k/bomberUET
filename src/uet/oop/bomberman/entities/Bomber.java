@@ -1,6 +1,7 @@
 package uet.oop.bomberman.entities;
 
 import uet.oop.bomberman.entities.bomb.Bomb;
+import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.graphic.Sprite;
 import javafx.scene.image.Image;
 
@@ -22,7 +23,11 @@ public class Bomber extends Entity {
 
     @Override
     public void update() {
-
+        if (isAlive()) {
+            if (touchDeadlyObstacle()) {
+                this.img = Sprite.bomber_die.getFxImage();
+            }
+        }
     }
 
     public void goUp() {
@@ -94,5 +99,17 @@ public class Bomber extends Entity {
                 bombIterator.remove();
             }
         }
+    }
+
+    public boolean touchDeadlyObstacle() {
+        for (Entity e : EntityArr.balloms) {
+            if (this.intersects(e)) return true;
+        }
+
+        for (Entity e : EntityArr.oneals) {
+            if (this.intersects(e)) return true;
+        }
+
+        return false;
     }
 }

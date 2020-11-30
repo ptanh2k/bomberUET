@@ -33,7 +33,7 @@ public class Bomber extends Entity {
     public void goUp() {
         this.y -= this.speed;
         if (checkBounds()) this.y += this.speed;
-        if (checkBoundsBomb()) this.y += this.speed - 1;
+//        if (checkBoundsBomb()) this.y += this.speed - 1;
         checkBounds();
         setImg(Sprite.movingSprite(Sprite.bomber_look_up, Sprite.bomber_move_up1, Sprite.bomber_move_up2, this.getY(), Sprite.DEFAULT_SIZE).getFxImage());
     }
@@ -41,7 +41,7 @@ public class Bomber extends Entity {
     public void goRight() {
         this.x += this.speed;
         if (checkBounds()) this.x -= this.speed;
-        if (checkBoundsBomb()) this.x -= this.speed + 1;
+//        if (checkBoundsBomb()) this.x -= this.speed + 1;
         checkBounds();
         setImg(Sprite.movingSprite(Sprite.bomber_look_right, Sprite.bomber_move_right1, Sprite.bomber_move_right2, this.getX(), Sprite.DEFAULT_SIZE).getFxImage());
     }
@@ -49,7 +49,7 @@ public class Bomber extends Entity {
     public void goDown() {
         this.y += this.speed;
         if (checkBounds()) this.y -= this.speed;
-        if (checkBoundsBomb()) this.y -= this.speed + 1;
+//        if (checkBoundsBomb()) this.y -= this.speed + 1;
         checkBounds();
         setImg(Sprite.movingSprite(Sprite.bomber_look_down, Sprite.bomber_move_down1, Sprite.bomber_move_down2, this.getY(), Sprite.DEFAULT_SIZE).getFxImage());
     }
@@ -57,7 +57,7 @@ public class Bomber extends Entity {
     public void goLeft() {
         this.x -= this.speed;
         if (checkBounds()) this.x += this.speed;
-        if (checkBoundsBomb()) this.x += this.speed - 1;
+//        if (checkBoundsBomb()) this.x += this.speed - 1;
         checkBounds();
         setImg(Sprite.movingSprite(Sprite.bomber_look_left, Sprite.bomber_move_left1, Sprite.bomber_move_left2, this.getX(), Sprite.DEFAULT_SIZE).getFxImage());
     }

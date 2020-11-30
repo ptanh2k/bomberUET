@@ -80,6 +80,7 @@ public class BombermanGame extends Application {
             }
             // Đặt bom
             else if (event.getCode().toString().equals("SPACE")) {
+                Sound.play("BOM_SET");
                 Bomb bomb = new Bomb(EntityArr.bomberman.getX() / Sprite.SCALED_SIZE
                         , EntityArr.bomberman.getY() / Sprite.SCALED_SIZE, Sprite.bomb.getFxImage());
                 boolean duplicate = false;

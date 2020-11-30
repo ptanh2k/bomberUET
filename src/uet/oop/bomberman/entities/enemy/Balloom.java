@@ -2,6 +2,7 @@ package uet.oop.bomberman.entities.enemy;
 
 import uet.oop.bomberman.graphic.Sprite;
 import javafx.scene.image.Image;
+import uet.oop.bomberman.sound.Sound;
 
 public class Balloom extends Enemy {
     public Balloom(int xUnit, int yUnit, Image img) {
@@ -25,6 +26,7 @@ public class Balloom extends Enemy {
                         , this.x, Sprite.DEFAULT_SIZE).getFxImage();
             }
         } else {
+            Sound.play("AA126_11");
             this.img = Sprite.baloom_die.getFxImage();
         }
     }

@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntityArr;
 import uet.oop.bomberman.graphic.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 import java.util.*;
 
@@ -35,6 +36,7 @@ public class Bomb extends Entity {
 
     public void addFlame() {
         Flame flame;
+        Sound.play("BOM_11_M");
         for (int i = 0; i < flameLength; ++i) {
             flame = new FlameV(getX() / Sprite.SCALED_SIZE, getY() / Sprite.SCALED_SIZE + 1 + i
                     , Sprite.explosion_vertical.getFxImage());

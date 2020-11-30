@@ -71,6 +71,10 @@ public abstract class Entity {
             if (this.intersects(e)) return true;
         }
 
-        return false;
+        for (Entity e : EntityArr.bomberman.bombs) {
+            if (this.intersects(e)) return true;
+
+        }
+            return false;
     }
 }

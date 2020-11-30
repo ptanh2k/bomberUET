@@ -7,6 +7,7 @@ import javax.sound.sampled.Clip;
 import java.io.File;
 import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.FloatControl;
 
 public class Sound {
     public static void play(String sound) {
@@ -17,6 +18,8 @@ public class Sound {
                     AudioInputStream inputStream = AudioSystem.getAudioInputStream(
                             Menu.class.getResourceAsStream("/sound/" + sound + ".wav"));
                     clip.open(inputStream);
+                    FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                    gainControl.setValue(-20.0f);
                     clip.start();
                 } catch (Exception e) {
                     System.err.println(e.getMessage());
@@ -33,6 +36,8 @@ public class Sound {
                     AudioInputStream inputStream = AudioSystem.getAudioInputStream(
                             Menu.class.getResourceAsStream("/sound/" + sound + ".wav"));
                     clip.open(inputStream);
+                    FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                    gainControl.setValue(-20.0f);
                     clip.stop();
                 } catch (Exception e) {
                     System.err.println(e.getMessage());

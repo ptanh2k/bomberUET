@@ -4,6 +4,7 @@ import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.graphic.Sprite;
 import javafx.scene.image.Image;
+import uet.oop.bomberman.sound.Sound;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,40 +26,73 @@ public class Bomber extends Entity {
     public void update() {
         if (isAlive()) {
             if (touchDeadlyObstacle()) {
+                Sound.play("endgame3");
                 this.img = Sprite.bomber_die.getFxImage();
             }
         }
     }
 
     public void goUp() {
-        this.y -= this.speed;
-        if (checkBounds()) this.y += this.speed;
-//        if (checkBoundsBomb()) this.y += this.speed - 1;
-        checkBounds();
+        for (int i = 1; i <= this.speed; ++i) {
+            this.y -= 1;
+            if (checkBounds() || checkBoundsBomb()) {
+                this.y += 1;
+                if (this.x % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
+                    this.x = Sprite.SCALED_SIZE * (this.x / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
+                } else if (this.x % Sprite.SCALED_SIZE <= Sprite.SCALED_SIZE / 3) {
+                    this.x = Sprite.SCALED_SIZE * (this.x / Sprite.SCALED_SIZE);
+                }
+                break;
+            }
+        }
         setImg(Sprite.movingSprite(Sprite.bomber_look_up, Sprite.bomber_move_up1, Sprite.bomber_move_up2, this.getY(), Sprite.DEFAULT_SIZE).getFxImage());
     }
 
     public void goRight() {
-        this.x += this.speed;
-        if (checkBounds()) this.x -= this.speed;
-//        if (checkBoundsBomb()) this.x -= this.speed + 1;
-        checkBounds();
+        for (int i = 1; i <= this.speed; ++i) {
+            this.x += 1;
+            if (checkBounds() || checkBoundsBomb()) {
+                this.x -= 1;
+                if (this.y % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
+                    this.y = Sprite.SCALED_SIZE * (this.y / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
+                } else if (this.x % Sprite.SCALED_SIZE <= Sprite.SCALED_SIZE / 3) {
+                    this.y = Sprite.SCALED_SIZE * (this.y / Sprite.SCALED_SIZE);
+                }
+                break;
+            }
+        }
         setImg(Sprite.movingSprite(Sprite.bomber_look_right, Sprite.bomber_move_right1, Sprite.bomber_move_right2, this.getX(), Sprite.DEFAULT_SIZE).getFxImage());
     }
 
     public void goDown() {
-        this.y += this.speed;
-        if (checkBounds()) this.y -= this.speed;
-//        if (checkBoundsBomb()) this.y -= this.speed + 1;
-        checkBounds();
+        for (int i = 1; i <= this.speed; ++i) {
+            this.y += 1;
+            if (checkBounds() || checkBoundsBomb()) {
+                this.y -= 1;
+                if (this.x % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
+                    this.x = Sprite.SCALED_SIZE * (this.x / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
+                } else if (this.x % Sprite.SCALED_SIZE <= Sprite.SCALED_SIZE / 3) {
+                    this.x = Sprite.SCALED_SIZE * (this.x / Sprite.SCALED_SIZE);
+                }
+                break;
+            }
+        }
         setImg(Sprite.movingSprite(Sprite.bomber_look_down, Sprite.bomber_move_down1, Sprite.bomber_move_down2, this.getY(), Sprite.DEFAULT_SIZE).getFxImage());
     }
 
     public void goLeft() {
-        this.x -= this.speed;
-        if (checkBounds()) this.x += this.speed;
-//        if (checkBoundsBomb()) this.x += this.speed - 1;
-        checkBounds();
+        for (int i = 1; i <= this.speed; ++i) {
+            this.x -= 1;
+            if (checkBounds() || checkBoundsBomb()) {
+                this.x += 1;
+                if (this.y % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
+                    this.y = Sprite.SCALED_SIZE * (this.y / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
+                } else if (this.y % Sprite.SCALED_SIZE <= Sprite.SCALED_SIZE / 3) {
+                    this.y = Sprite.SCALED_SIZE * (this.y / Sprite.SCALED_SIZE);
+                }
+                break;
+            }
+        }
         setImg(Sprite.movingSprite(Sprite.bomber_look_left, Sprite.bomber_move_left1, Sprite.bomber_move_left2, this.getX(), Sprite.DEFAULT_SIZE).getFxImage());
     }
 
@@ -106,7 +140,7 @@ public class Bomber extends Entity {
     }
 
     public boolean touchDeadlyObstacle() {
-        for (Entity e : EntityArr.balloms) {
+        for (Entity e : EntityArr.ballooms) {
             if (this.intersects(e)) return true;
         }
 
@@ -117,10 +151,4 @@ public class Bomber extends Entity {
         return false;
     }
 
-    public boolean checkBoundsBomb() {
-        for (Entity e : EntityArr.bomberman.bombs) {
-            if (this.intersects(e)) return true;
-        }
-        return false;
-    }
 }

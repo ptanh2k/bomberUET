@@ -17,19 +17,20 @@ public class EntityArr {
     public static List<Entity> walls = new ArrayList<>();
     public static List<Brick> bricks = new ArrayList<>();
     public static List<Entity> portals = new ArrayList<>();
-    public static List<Balloom> balloms = new ArrayList<>();
+    public static List<Balloom> ballooms = new ArrayList<>();
     public static List<Oneal> oneals = new ArrayList<>();
     public static List<Item> items = new ArrayList<>();
     public static Bomber bomberman = new Bomber(1, 1, Sprite.bomber_look_right.getFxImage());
     public static List<Flame> flames = new ArrayList<>();
 
     public static void removeEnemy() {
-        Iterator<Balloom> balloomIterator = balloms.listIterator();
-        Iterator<Oneal> onealIterator = oneals.listIterator();
+        Iterator<Balloom> balloomIterator = ballooms.listIterator();
         while (balloomIterator.hasNext()) {
             Balloom balloom = balloomIterator.next();
             if (!balloom.isAlive()) balloomIterator.remove();
         }
+
+        Iterator<Oneal> onealIterator = oneals.listIterator();
         while (onealIterator.hasNext()) {
             Oneal oneal = onealIterator.next();
             if (!oneal.isAlive()) onealIterator.remove();

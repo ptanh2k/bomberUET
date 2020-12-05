@@ -48,7 +48,7 @@ public abstract class Flame extends Entity {
     }
 
     protected void checkEnemy() {
-        for (Balloom b : EntityArr.balloms) {
+        for (Balloom b : EntityArr.ballooms) {
             if (this.intersects(b)) {
                 b.setAlive(false);
             }

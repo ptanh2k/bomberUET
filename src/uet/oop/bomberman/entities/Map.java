@@ -60,7 +60,7 @@ public class Map {
                         EntityArr.bricks.add(brick);
                     } else if (maps[j][i] == '1') {
                         balloom = new Balloom(i, j, Sprite.baloom_left1.getFxImage());
-                        EntityArr.balloms.add(balloom);
+                        EntityArr.ballooms.add(balloom);
                     } else if (maps[j][i] == '2') {
                         oneal = new Oneal(i, j, Sprite.oneal_right1.getFxImage());
                         EntityArr.oneals.add(oneal);

@@ -27,7 +27,7 @@ public class Oneal extends Enemy {
             }
         } else {
             Sound.play("AA126_11");
-            this.img = Sprite.oneal_die.getFxImage();
+            this.img = Sprite.movingSprite(Sprite.oneal_die, Sprite.enemy_die1, Sprite.enemy_die2, this.x, Sprite.DEFAULT_SIZE).getFxImage();
         }
     }
 }

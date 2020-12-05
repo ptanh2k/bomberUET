@@ -27,7 +27,7 @@ public class Balloom extends Enemy {
             }
         } else {
             Sound.play("AA126_11");
-            this.img = Sprite.baloom_die.getFxImage();
+            this.img = Sprite.movingSprite(Sprite.baloom_die, Sprite.enemy_die1, Sprite.enemy_die2, this.x, Sprite.DEFAULT_SIZE).getFxImage();
         }
     }
 }

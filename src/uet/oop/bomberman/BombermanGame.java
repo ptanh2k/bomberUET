@@ -14,6 +14,7 @@ import uet.oop.bomberman.entities.EntityArr;
 import uet.oop.bomberman.entities.blocks.Brick;
 import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.enemy.Balloom;
+import uet.oop.bomberman.entities.enemy.Enemy;
 import uet.oop.bomberman.entities.enemy.Oneal;
 import uet.oop.bomberman.graphic.Sprite;
 import uet.oop.bomberman.sound.Sound;
@@ -125,8 +126,7 @@ public class BombermanGame extends Application {
     // update
     public void update() {
         EntityArr.bombers.forEach(Bomber::update);
-        EntityArr.ballooms.forEach(Balloom::update);
-        EntityArr.oneals.forEach(Oneal::update);
+        EntityArr.enemies.forEach(Enemy::update);
         EntityArr.bomberman.bombs.forEach(Bomb::update);
         EntityArr.bricks.forEach(Brick::update);
         // update flame
@@ -152,8 +152,9 @@ public class BombermanGame extends Application {
         EntityArr.walls.forEach(g -> g.render(gc));
         EntityArr.bricks.forEach(g -> g.render(gc));
         EntityArr.portals.forEach(g -> g.render(gc));
-        EntityArr.ballooms.forEach(g -> g.render(gc));
-        EntityArr.oneals.forEach(g -> g.render(gc));
+        EntityArr.enemies.forEach(g -> {
+            if (g.isAlive()) g.render(gc);
+        });
         EntityArr.bomberman.bombs.forEach(g -> g.render(gc));
         EntityArr.bombers.forEach(g -> g.render(gc));
         EntityArr.bomberman.bombs.forEach(g -> g.flames.forEach(g1 -> g1.render(gc)));

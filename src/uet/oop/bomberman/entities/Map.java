@@ -6,6 +6,7 @@ import uet.oop.bomberman.entities.blocks.Grass;
 import uet.oop.bomberman.entities.blocks.Portal;
 import uet.oop.bomberman.entities.blocks.Wall;
 import uet.oop.bomberman.entities.enemy.Balloom;
+import uet.oop.bomberman.entities.enemy.Doll;
 import uet.oop.bomberman.entities.enemy.Oneal;
 import uet.oop.bomberman.graphic.Sprite;
 
@@ -41,6 +42,7 @@ public class Map {
                     Entity object;
                     Balloom balloom;
                     Oneal oneal;
+                    Doll doll;
                     // create wall and grass
                     if (j == 0 || j == BombermanGame.HEIGHT - 1 || i == 0 || i == BombermanGame.WIDTH - 1 || maps[j][i] == '#') {
                         object = new Wall(i, j, Sprite.wall.getFxImage());
@@ -60,10 +62,12 @@ public class Map {
                         EntityArr.bricks.add(brick);
                     } else if (maps[j][i] == '1') {
                         balloom = new Balloom(i, j, Sprite.baloom_left1.getFxImage());
-                        EntityArr.ballooms.add(balloom);
+                        EntityArr.enemies.add(balloom);
                     } else if (maps[j][i] == '2') {
                         oneal = new Oneal(i, j, Sprite.oneal_right1.getFxImage());
-                        EntityArr.oneals.add(oneal);
+                        EntityArr.enemies.add(oneal);
+                    } else if (maps[j][i] == '3') {
+                        //Add code here.
                     }
                 }
             }

@@ -6,6 +6,7 @@ import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntityArr;
 import uet.oop.bomberman.entities.blocks.Brick;
 import uet.oop.bomberman.entities.enemy.Balloom;
+import uet.oop.bomberman.entities.enemy.Enemy;
 import uet.oop.bomberman.entities.enemy.Oneal;
 
 
@@ -48,15 +49,9 @@ public abstract class Flame extends Entity {
     }
 
     protected void checkEnemy() {
-        for (Balloom b : EntityArr.ballooms) {
-            if (this.intersects(b)) {
-                b.setAlive(false);
-            }
-        }
-        for (Oneal b : EntityArr.oneals) {
-            if (this.intersects(b)) {
-                b.setAlive(false);
-            }
+
+        for (Enemy e : EntityArr.enemies) {
+            if (this.intersects(e)) e.setAlive(false);
         }
     }
 

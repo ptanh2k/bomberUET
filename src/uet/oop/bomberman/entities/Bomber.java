@@ -1,7 +1,6 @@
 package uet.oop.bomberman.entities;
 
 import uet.oop.bomberman.entities.bomb.Bomb;
-import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.graphic.Sprite;
 import javafx.scene.image.Image;
 import uet.oop.bomberman.sound.Sound;
@@ -27,8 +26,11 @@ public class Bomber extends Entity {
         if (isAlive()) {
             if (touchDeadlyObstacle()) {
                 Sound.play("endgame3");
-                this.img = Sprite.bomber_die.getFxImage();
+                bomberDie();
             }
+        }
+        if (checkPortal()) {
+
         }
     }
 
@@ -128,6 +130,28 @@ public class Bomber extends Entity {
         this.flameLength = flameLength;
     }
 
+    public void putBomb() {
+        int xBomb, yBomb;
+        if (getX() % Sprite.SCALED_SIZE > Sprite.SCALED_SIZE / 3) {
+            xBomb = (getX() / Sprite.SCALED_SIZE) + 1;
+        } else {
+            xBomb = (getX() / Sprite.SCALED_SIZE);
+        }
+
+        if (getY() % Sprite.SCALED_SIZE > Sprite.SCALED_SIZE / 3) {
+            yBomb = (getY() / Sprite.SCALED_SIZE) + 1;
+        } else {
+            yBomb = (getY() / Sprite.SCALED_SIZE);
+        }
+
+        Bomb bomb = new Bomb(xBomb, yBomb, Sprite.bomb.getFxImage());
+
+        if (getNumBombs() >= this.bombs.size() + 1) {
+            Sound.play("BOM_SET");
+            this.bombs.add(bomb);
+        }
+    }
+
     public void removeBomb(Bomb b) {
         Iterator<Bomb> bombIterator = this.bombs.iterator();
         while (bombIterator.hasNext()) {
@@ -139,16 +163,27 @@ public class Bomber extends Entity {
         }
     }
 
-    public boolean touchDeadlyObstacle() {
-        for (Entity e : EntityArr.ballooms) {
-            if (this.intersects(e)) return true;
-        }
+    public boolean checkPortal() {
+     for (Entity e : EntityArr.portals) {
+         if (EntityArr.enemies.size() != 0) break;
+         if (this.intersects(e)) {
+             return true;
+         }
+     }
+     return false;
+    }
 
-        for (Entity e : EntityArr.oneals) {
+    public boolean touchDeadlyObstacle() {
+        for (Entity e : EntityArr.enemies) {
             if (this.intersects(e)) return true;
         }
 
         return false;
     }
 
+    protected void bomberDie() {
+        this.setAlive(false);
+        setImg(Sprite.movingSprite(Sprite.bomber_die, Sprite.bomber_die1, Sprite.bomber_die2
+                                    , this.animate, Sprite.DEFAULT_SIZE).getFxImage());
+    }
 }

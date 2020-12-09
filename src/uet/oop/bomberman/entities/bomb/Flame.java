@@ -17,7 +17,11 @@ public abstract class Flame extends Entity {
     }
 
     @Override
-    public abstract void update();
+    public void update() {
+        checkBrick();
+        checkBomber();
+        checkBoundsBomb();
+    }
 
     public boolean isVisible() {
         return isVisible;

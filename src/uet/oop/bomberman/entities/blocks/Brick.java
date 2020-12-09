@@ -46,7 +46,7 @@ public class Brick extends Entity {
 
     private Item randomItem() {
         Random random = new Random();
-        int num = random.nextInt(8);
+        int num = random.nextInt(10);
         switch (num) {
             case 1:
                 return new BombItem(x / Sprite.SCALED_SIZE, y / Sprite.SCALED_SIZE

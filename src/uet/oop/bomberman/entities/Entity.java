@@ -79,4 +79,8 @@ public abstract class Entity {
         }
         return false;
     }
+
+//    public boolean checkBombForBomber() {
+//
+//    }
 }

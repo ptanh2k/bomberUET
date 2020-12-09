@@ -1,6 +1,7 @@
 package uet.oop.bomberman.entities.bomb;
 
 import javafx.scene.image.Image;
+import uet.oop.bomberman.entities.Bomber;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntityArr;
 import uet.oop.bomberman.graphic.Sprite;
@@ -15,7 +16,11 @@ public class Bomb extends Entity {
     private List<Flame> fUp = new ArrayList<>();
     private List<Flame> fDown = new ArrayList<>();
     public List<Flame> flames = new ArrayList<>();
+
     private boolean isExploded = false;
+
+    public int timerEx = 0;
+
     public Bomb(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
     }
@@ -112,5 +117,43 @@ public class Bomb extends Entity {
 
     public List<Flame> getfDown() {
         return fDown;
+    }
+
+    public boolean letBomberPass() {
+        for (Bomber bomber : EntityArr.bombers) {
+            if (this.getX() == bomber.getX() && this.getY() == bomber.getY()) {
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public void setTimeExploded() {
+        Bomb bomb = this;
+
+        TimerTask bombExplode = new TimerTask() {
+            @Override
+            public void run() {
+                bomb.setExploded(true);
+            }
+        };
+
+        if (!this.isExploded()) {
+            Timer timerEx = new Timer();
+            timerEx.schedule(bombExplode, 2000);
+        }
+
+        TimerTask removeFlame = new TimerTask() {
+            @Override
+            public void run() {
+                EntityArr.removeBrick();
+                EntityArr.removeBomb();
+                EntityArr.removeEnemy();
+            }
+        };
+
+        Timer timer = new Timer();
+        timer.schedule(removeFlame, 2500L);
     }
 }

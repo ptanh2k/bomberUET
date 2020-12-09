@@ -17,6 +17,7 @@ import java.io.FileReader;
 public class Map {
 
     public static void createMapByLevel(int level) {
+        EntityArr.clearArr();
         EntityArr.bombers.add(EntityArr.bomberman);
         try {
             String path = "resources/levels/Level" + level + ".txt";

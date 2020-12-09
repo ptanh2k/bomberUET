@@ -15,6 +15,9 @@ public class Bomber extends Entity {
     private int flameLength = 1;
     private int speed = Sprite.SCALED_SIZE / 8;
     private boolean isAlive = true;
+
+    public boolean bombPassed = true;
+
     public List<Bomb> bombs = new ArrayList<>();
 
     public Bomber(int x, int y, Image img) {
@@ -55,6 +58,7 @@ public class Bomber extends Entity {
             this.x += 1;
             if (checkBounds() || checkBoundsBomb()) {
                 this.x -= 1;
+                checkBoundsBomb();
                 if (this.y % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
                     this.y = Sprite.SCALED_SIZE * (this.y / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
                 } else if (this.x % Sprite.SCALED_SIZE <= Sprite.SCALED_SIZE / 3) {
@@ -186,4 +190,6 @@ public class Bomber extends Entity {
         setImg(Sprite.movingSprite(Sprite.bomber_die, Sprite.bomber_die1, Sprite.bomber_die2
                                     , this.animate, Sprite.DEFAULT_SIZE).getFxImage());
     }
+
+
 }

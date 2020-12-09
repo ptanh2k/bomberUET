@@ -1,11 +1,9 @@
 package uet.oop.bomberman.sound;
 
-import uet.oop.bomberman.Menu;
+import uet.oop.bomberman.BombermanGame;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import java.io.File;
-import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.FloatControl;
 
@@ -16,7 +14,7 @@ public class Sound {
                 try {
                     Clip clip = AudioSystem.getClip();
                     AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                            Menu.class.getResourceAsStream("/sound/" + sound + ".wav"));
+                            BombermanGame.class.getResourceAsStream("/sound/" + sound + ".wav"));
                     clip.open(inputStream);
                     FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
                     gainControl.setValue(-20.0f);
@@ -35,7 +33,7 @@ public class Sound {
                 try {
                     Clip clip = AudioSystem.getClip();
                     AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                            Menu.class.getResourceAsStream("/sound/" + sound + ".wav"));
+                            BombermanGame.class.getResourceAsStream("/sound/" + sound + ".wav"));
                     clip.open(inputStream);
                     FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
                     gainControl.setValue(-20.0f);

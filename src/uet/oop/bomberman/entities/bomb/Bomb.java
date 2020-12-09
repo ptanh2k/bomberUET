@@ -21,6 +21,8 @@ public class Bomb extends Entity {
 
     public int timerEx = 0;
 
+    public boolean allowedToPassThru = true;
+
     public Bomb(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
     }
@@ -117,16 +119,6 @@ public class Bomb extends Entity {
 
     public List<Flame> getfDown() {
         return fDown;
-    }
-
-    public boolean letBomberPass() {
-        for (Bomber bomber : EntityArr.bombers) {
-            if (this.getX() == bomber.getX() && this.getY() == bomber.getY()) {
-                return true;
-            }
-            return false;
-        }
-        return false;
     }
 
     public void setTimeExploded() {

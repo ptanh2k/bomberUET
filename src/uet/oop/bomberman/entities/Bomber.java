@@ -16,12 +16,28 @@ public class Bomber extends Entity {
     private int speed = Sprite.SCALED_SIZE / 8;
     private boolean isAlive = true;
 
-    public boolean bombPassed = true;
+    public boolean bombPasse = true;
+
+    public boolean wallPass = true;
+
+    public boolean flamePass = true;
 
     public List<Bomb> bombs = new ArrayList<>();
 
     public Bomber(int x, int y, Image img) {
         super(x, y, img);
+    }
+
+    public boolean isBombPasse() {
+        return bombPasse;
+    }
+
+    public boolean isWallPass() {
+        return wallPass;
+    }
+
+    public boolean isFlamePass() {
+        return flamePass;
     }
 
     @Override
@@ -40,7 +56,7 @@ public class Bomber extends Entity {
     public void goUp() {
         for (int i = 1; i <= this.speed; ++i) {
             this.y -= 1;
-            if (checkBounds() || checkBoundsBomb()) {
+            if (checkBounds() || checkBoundsBomb() || checkBoundsBomb()) {
                 this.y += 1;
                 if (this.x % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
                     this.x = Sprite.SCALED_SIZE * (this.x / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
@@ -56,7 +72,7 @@ public class Bomber extends Entity {
     public void goRight() {
         for (int i = 1; i <= this.speed; ++i) {
             this.x += 1;
-            if (checkBounds() || checkBoundsBomb()) {
+            if (checkBounds() || checkBoundsBomb() || checkBoundsBomb()) {
                 this.x -= 1;
                 checkBoundsBomb();
                 if (this.y % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
@@ -73,7 +89,7 @@ public class Bomber extends Entity {
     public void goDown() {
         for (int i = 1; i <= this.speed; ++i) {
             this.y += 1;
-            if (checkBounds() || checkBoundsBomb()) {
+            if (checkBounds() || checkBoundsBomb() || checkBoundsBomb()) {
                 this.y -= 1;
                 if (this.x % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
                     this.x = Sprite.SCALED_SIZE * (this.x / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
@@ -89,7 +105,7 @@ public class Bomber extends Entity {
     public void goLeft() {
         for (int i = 1; i <= this.speed; ++i) {
             this.x -= 1;
-            if (checkBounds() || checkBoundsBomb()) {
+            if (checkBounds() || checkBoundsBomb() || checkBoundsBomb()) {
                 this.x += 1;
                 if (this.y % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
                     this.y = Sprite.SCALED_SIZE * (this.y / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
@@ -190,6 +206,21 @@ public class Bomber extends Entity {
         setImg(Sprite.movingSprite(Sprite.bomber_die, Sprite.bomber_die1, Sprite.bomber_die2
                                     , this.animate, Sprite.DEFAULT_SIZE).getFxImage());
     }
+
+    @Override
+    public boolean checkBoundsBomb() {
+        for (Bomb e : EntityArr.bomberman.bombs) {
+            double diffX = this.getX() - e.getX();
+            double diffY = this.getY() - e.getY();
+            if (!(diffX > -32 && diffX < 32 && diffY > -32 && diffY < 32)) {
+                e.allowedToPassThru = false;
+            }
+            if (e.allowedToPassThru) return false;
+            if (this.intersects(e)) return true;
+        }
+        return false;
+    }
+
 
 
 }

@@ -5,9 +5,7 @@ import uet.oop.bomberman.entities.blocks.Brick;
 import uet.oop.bomberman.entities.blocks.Grass;
 import uet.oop.bomberman.entities.blocks.Portal;
 import uet.oop.bomberman.entities.blocks.Wall;
-import uet.oop.bomberman.entities.enemy.Balloom;
-import uet.oop.bomberman.entities.enemy.Doll;
-import uet.oop.bomberman.entities.enemy.Oneal;
+import uet.oop.bomberman.entities.enemy.*;
 import uet.oop.bomberman.graphic.Sprite;
 
 import java.io.BufferedReader;
@@ -44,6 +42,8 @@ public class Map {
                     Balloom balloom;
                     Oneal oneal;
                     Doll doll;
+                    Minvo minvo;
+                    Kondoria kondoria;
                     // create wall and grass
                     if (j == 0 || j == BombermanGame.HEIGHT - 1 || i == 0 || i == BombermanGame.WIDTH - 1 || maps[j][i] == '#') {
                         object = new Wall(i, j, Sprite.wall.getFxImage());
@@ -68,7 +68,14 @@ public class Map {
                         oneal = new Oneal(i, j, Sprite.oneal_right1.getFxImage());
                         EntityArr.enemies.add(oneal);
                     } else if (maps[j][i] == '3') {
-                        //Add code here.
+                        doll = new Doll(i, j, Sprite.doll_left2.getFxImage());
+                        EntityArr.enemies.add(doll);
+                    } else if (maps[j][i] == '4') {
+                        minvo = new Minvo(i, j, Sprite.minvo_right2.getFxImage());
+                        EntityArr.enemies.add(minvo);
+                    } else if (maps[j][i] == '5') {
+                        kondoria = new Kondoria(i, j, Sprite.kondoria_right1.getFxImage());
+                        EntityArr.enemies.add(kondoria);
                     }
                 }
             }

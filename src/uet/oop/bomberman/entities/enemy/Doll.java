@@ -1,6 +1,8 @@
 package uet.oop.bomberman.entities.enemy;
 
+import uet.oop.bomberman.graphic.Sprite;
 import javafx.scene.image.Image;
+import uet.oop.bomberman.sound.Sound;
 
 public class Doll extends Enemy {
     public Doll(int xUnit, int yUnit, Image img) {
@@ -9,6 +11,22 @@ public class Doll extends Enemy {
 
     @Override
     public void update() {
-
+        if (isAlive()) {
+            if (checkBounds() || checkBoundsBomb()) {
+                this.setSpeed(getSpeed() * (-1));
+            }
+            if (this.getSpeed() > 0) {
+                this.x += this.getSpeed();
+                this.img = Sprite.movingSprite(Sprite.doll_right1, Sprite.doll_right2
+                        , Sprite.doll_right3, this.x, Sprite.DEFAULT_SIZE).getFxImage();
+            } else {
+                this.x += this.getSpeed();
+                this.img = Sprite.movingSprite(Sprite.doll_left1, Sprite.doll_left2
+                        , Sprite.doll_left3, this.x, Sprite.DEFAULT_SIZE).getFxImage();
+            }
+        } else {
+//            Sound.play("AA126_11");
+            this.img = Sprite.doll_die.getFxImage();
+        }
     }
 }

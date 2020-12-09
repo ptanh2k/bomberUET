@@ -15,7 +15,6 @@ public class Balloom extends Enemy {
             if (checkBounds() || checkBoundsBomb()) {
                 this.setSpeed(getSpeed() * (-1));
             }
-
             if (this.getSpeed() > 0) {
                 this.x += this.getSpeed();
                 this.img = Sprite.movingSprite(Sprite.baloom_right1, Sprite.baloom_right2, Sprite.baloom_right3

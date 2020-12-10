@@ -15,7 +15,7 @@ public class SpeedItem extends Item {
         if (checkBoundBomber()) {
             Sound.play("Item");
             this.isVisible = false;
-            EntityArr.bomberman.setSpeed(EntityArr.bomberman.getSpeed() + Sprite.SCALED_SIZE / 8);
+            EntityArr.bomberman.setSpeed(EntityArr.bomberman.getSpeed() + Sprite.SCALED_SIZE / 16);
         }
     }
 }

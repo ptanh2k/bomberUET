@@ -2,7 +2,6 @@ package uet.oop.bomberman.entities.enemy;
 
 import uet.oop.bomberman.graphic.Sprite;
 import javafx.scene.image.Image;
-import uet.oop.bomberman.sound.Sound;
 
 public class Doll extends Enemy {
     public Doll(int xUnit, int yUnit, Image img) {
@@ -25,7 +24,6 @@ public class Doll extends Enemy {
                         , Sprite.doll_left3, this.y, Sprite.DEFAULT_SIZE).getFxImage();
             }
         } else {
-//            Sound.play("AA126_11");
             this.img = Sprite.doll_die.getFxImage();
         }
     }

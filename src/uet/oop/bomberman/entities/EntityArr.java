@@ -2,12 +2,10 @@ package uet.oop.bomberman.entities;
 
 import uet.oop.bomberman.entities.blocks.Brick;
 import uet.oop.bomberman.entities.bomb.Bomb;
-import uet.oop.bomberman.entities.bomb.Flame;
-import uet.oop.bomberman.entities.enemy.Balloom;
 import uet.oop.bomberman.entities.enemy.Enemy;
-import uet.oop.bomberman.entities.enemy.Oneal;
 import uet.oop.bomberman.entities.item.Item;
 import uet.oop.bomberman.graphic.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -27,7 +25,10 @@ public class EntityArr {
         Iterator<Enemy> enemyIterator = enemies.listIterator();
         while (enemyIterator.hasNext()) {
             Enemy enemy = enemyIterator.next();
-            if (!enemy.isAlive()) enemyIterator.remove();
+            if (!enemy.isAlive()) {
+                Sound.play("AA126_11");
+                enemyIterator.remove();
+            }
         }
     }
 

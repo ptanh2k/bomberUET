@@ -44,6 +44,7 @@ public class Map {
                     Doll doll;
                     Minvo minvo;
                     Kondoria kondoria;
+                    BomberFake bomberFake;
                     // create wall and grass
                     if (j == 0 || j == BombermanGame.HEIGHT - 1 || i == 0 || i == BombermanGame.WIDTH - 1 || maps[j][i] == '#') {
                         object = new Wall(i, j, Sprite.wall.getFxImage());
@@ -76,6 +77,9 @@ public class Map {
                     } else if (maps[j][i] == '5') {
                         kondoria = new Kondoria(i, j, Sprite.kondoria_right1.getFxImage());
                         EntityArr.enemies.add(kondoria);
+                    } else if (maps[j][i] == '6') {
+                        bomberFake = new BomberFake(i, j, Sprite.bomber_look_right.getFxImage());
+                        EntityArr.enemies.add(bomberFake);
                     }
                 }
             }

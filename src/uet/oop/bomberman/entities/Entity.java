@@ -80,6 +80,13 @@ public abstract class Entity {
         return false;
     }
 
+    public boolean checkBounds2() {
+        for (Entity e : EntityArr.walls) {
+            if (this.intersects(e)) return true;
+        }
+        return false;
+    }
+
 //    public boolean checkBombForBomber() {
 //
 //    }

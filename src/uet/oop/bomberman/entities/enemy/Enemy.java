@@ -5,7 +5,7 @@ import uet.oop.bomberman.graphic.Sprite;
 import javafx.scene.image.Image;
 
 public abstract class Enemy extends Entity {
-    private int speed = Sprite.DEFAULT_SIZE / 10;
+    private double speed = Sprite.DEFAULT_SIZE / 10;
     private boolean isAlive = true;
 
     public Enemy(int xUnit, int yUnit, Image img) {
@@ -15,11 +15,11 @@ public abstract class Enemy extends Entity {
     @Override
     public abstract void update();
 
-    public void setSpeed(int speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 

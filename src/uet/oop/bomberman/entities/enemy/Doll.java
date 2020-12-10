@@ -16,13 +16,13 @@ public class Doll extends Enemy {
                 this.setSpeed(getSpeed() * (-1));
             }
             if (this.getSpeed() > 0) {
-                this.x += this.getSpeed();
+                this.y -= this.getSpeed();
                 this.img = Sprite.movingSprite(Sprite.doll_right1, Sprite.doll_right2
-                        , Sprite.doll_right3, this.x, Sprite.DEFAULT_SIZE).getFxImage();
+                        , Sprite.doll_right3, this.y, Sprite.DEFAULT_SIZE).getFxImage();
             } else {
-                this.x += this.getSpeed();
+                this.y -= this.getSpeed();
                 this.img = Sprite.movingSprite(Sprite.doll_left1, Sprite.doll_left2
-                        , Sprite.doll_left3, this.x, Sprite.DEFAULT_SIZE).getFxImage();
+                        , Sprite.doll_left3, this.y, Sprite.DEFAULT_SIZE).getFxImage();
             }
         } else {
 //            Sound.play("AA126_11");

@@ -56,7 +56,7 @@ public class Bomber extends Entity {
     public void goUp() {
         for (int i = 1; i <= this.speed; ++i) {
             this.y -= 1;
-            if (checkBounds() || checkBoundsBomb() || checkBoundsBomb()) {
+            if (checkBoundsWall() || checkBoundsBomb() || checkBoundsBrick()) {
                 this.y += 1;
                 if (this.x % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
                     this.x = Sprite.SCALED_SIZE * (this.x / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
@@ -72,7 +72,7 @@ public class Bomber extends Entity {
     public void goRight() {
         for (int i = 1; i <= this.speed; ++i) {
             this.x += 1;
-            if (checkBounds() || checkBoundsBomb() || checkBoundsBomb()) {
+            if (checkBoundsWall() || checkBoundsBomb() || checkBoundsBrick()) {
                 this.x -= 1;
                 checkBoundsBomb();
                 if (this.y % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
@@ -89,7 +89,7 @@ public class Bomber extends Entity {
     public void goDown() {
         for (int i = 1; i <= this.speed; ++i) {
             this.y += 1;
-            if (checkBounds() || checkBoundsBomb() || checkBoundsBomb()) {
+            if (checkBoundsWall() || checkBoundsBomb() || checkBoundsBrick()) {
                 this.y -= 1;
                 if (this.x % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
                     this.x = Sprite.SCALED_SIZE * (this.x / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;
@@ -105,7 +105,7 @@ public class Bomber extends Entity {
     public void goLeft() {
         for (int i = 1; i <= this.speed; ++i) {
             this.x -= 1;
-            if (checkBounds() || checkBoundsBomb() || checkBoundsBomb()) {
+            if (checkBoundsWall() || checkBoundsBomb() || checkBoundsBrick()) {
                 this.x += 1;
                 if (this.y % Sprite.SCALED_SIZE >= 2 * Sprite.SCALED_SIZE / 3) {
                     this.y = Sprite.SCALED_SIZE * (this.y / Sprite.SCALED_SIZE) + Sprite.SCALED_SIZE;

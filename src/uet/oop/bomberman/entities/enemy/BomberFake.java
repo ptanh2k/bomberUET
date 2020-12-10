@@ -11,7 +11,7 @@ public class BomberFake extends Enemy {
     @Override
     public void update() {
         if (isAlive()) {
-            if (checkBounds() || checkBoundsBomb()) {
+            if (checkBoundsWall() || checkBoundsBomb() || checkBoundsBrick()) {
                 this.setSpeed(getSpeed() * (-1));
             }
             if (this.getSpeed() > 0) {

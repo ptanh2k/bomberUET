@@ -62,11 +62,7 @@ public abstract class Entity {
         return e.getBoundary().intersects(this.getBoundary());
     }
 
-    public boolean checkBounds() {
-        for (Entity e : EntityArr.walls) {
-            if (this.intersects(e)) return true;
-        }
-
+    public boolean checkBoundsBrick() {
         for (Entity e : EntityArr.bricks) {
             if (this.intersects(e)) return true;
         }
@@ -80,7 +76,7 @@ public abstract class Entity {
         return false;
     }
 
-    public boolean checkBounds2() {
+    public boolean checkBoundsWall() {
         for (Entity e : EntityArr.walls) {
             if (this.intersects(e)) return true;
         }

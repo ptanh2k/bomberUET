@@ -11,7 +11,7 @@ public class Kondoria extends Enemy {
     @Override
     public void update() {
         if (isAlive()) {
-            if (checkBounds2() || checkBoundsBomb()) {
+            if (checkBoundsWall() || checkBoundsBomb()) {
                 this.setSpeed(getSpeed() * (-1));
             }
             if (this.getSpeed() > 0) {

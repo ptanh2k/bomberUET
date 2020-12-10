@@ -11,7 +11,7 @@ public class Balloom extends Enemy {
     @Override
     public void update() {
         if (isAlive()) {
-            if (checkBounds() || checkBoundsBomb()) {
+            if (checkBoundsWall() || checkBoundsBomb() || checkBoundsBrick()) {
                 this.setSpeed(getSpeed() * (-1));
             }
             if (this.getSpeed() > 0) {
@@ -24,7 +24,7 @@ public class Balloom extends Enemy {
                         , this.x, Sprite.DEFAULT_SIZE).getFxImage();
             }
         } else {
-            this.img = Sprite.movingSprite(Sprite.baloom_die, Sprite.enemy_die1, Sprite.enemy_die2, this.x, Sprite.DEFAULT_SIZE).getFxImage();
+            this.img = Sprite.movingSprite(Sprite.baloom_die, Sprite.enemy_die1, Sprite.enemy_die2, this.animate, Sprite.DEFAULT_SIZE).getFxImage();
         }
     }
 }

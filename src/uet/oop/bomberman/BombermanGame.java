@@ -147,7 +147,7 @@ public class BombermanGame extends Application {
 
     // update
     public void update() {
-        EntityArr.bombers.forEach(Bomber::update);
+        EntityArr.bomberman.update();
         EntityArr.enemies.forEach(Enemy::update);
         EntityArr.bomberman.bombs.forEach(Bomb::update);
         EntityArr.bricks.forEach(Brick::update);
@@ -156,11 +156,10 @@ public class BombermanGame extends Application {
         EntityArr.bomberman.bombs.forEach(g -> g.getfDown().forEach(Flame::update));
         EntityArr.bomberman.bombs.forEach(g -> g.getfLeft().forEach(Flame::update));
         EntityArr.bomberman.bombs.forEach(g -> g.getfRight().forEach(Flame::update));
-        // update item
+        // Update item
         EntityArr.items.forEach(g -> {
             if (g.isVisible()) g.update();
         });
-
         EntityArr.portals.forEach(Entity::update);
     }
 

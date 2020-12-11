@@ -2,6 +2,7 @@ package uet.oop.bomberman.entities;
 
 import uet.oop.bomberman.BombermanGame;
 import uet.oop.bomberman.entities.bomb.Bomb;
+import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.graphic.Sprite;
 import javafx.scene.image.Image;
 import uet.oop.bomberman.sound.Sound;
@@ -17,28 +18,10 @@ public class Bomber extends Entity {
     private int speed = Sprite.SCALED_SIZE / 8;
     private boolean isAlive = true;
 
-    public boolean bombPasse = true;
-
-    public boolean wallPass = true;
-
-    public boolean flamePass = true;
-
     public List<Bomb> bombs = new ArrayList<>();
 
     public Bomber(int x, int y, Image img) {
         super(x, y, img);
-    }
-
-    public boolean isBombPasse() {
-        return bombPasse;
-    }
-
-    public boolean isWallPass() {
-        return wallPass;
-    }
-
-    public boolean isFlamePass() {
-        return flamePass;
     }
 
     @Override
@@ -47,6 +30,8 @@ public class Bomber extends Entity {
             if (touchDeadlyObstacle()) {
                 Sound.play("endgame3");
                 bomberDie();
+//                BombermanGame.level = 1;
+//                Map.createMapByLevel(BombermanGame.level);
             }
         }
         if (checkPortal()) {
@@ -151,28 +136,6 @@ public class Bomber extends Entity {
         this.flameLength = flameLength;
     }
 
-    public void putBomb() {
-        int xBomb, yBomb;
-        if (getX() % Sprite.SCALED_SIZE > Sprite.SCALED_SIZE / 3) {
-            xBomb = (getX() / Sprite.SCALED_SIZE) + 1;
-        } else {
-            xBomb = (getX() / Sprite.SCALED_SIZE);
-        }
-
-        if (getY() % Sprite.SCALED_SIZE > Sprite.SCALED_SIZE / 3) {
-            yBomb = (getY() / Sprite.SCALED_SIZE) + 1;
-        } else {
-            yBomb = (getY() / Sprite.SCALED_SIZE);
-        }
-
-        Bomb bomb = new Bomb(xBomb, yBomb, Sprite.bomb.getFxImage());
-
-        if (getNumBombs() >= this.bombs.size() + 1) {
-            Sound.play("BOM_SET");
-            this.bombs.add(bomb);
-        }
-    }
-
     public void removeBomb(Bomb b) {
         Iterator<Bomb> bombIterator = this.bombs.iterator();
         while (bombIterator.hasNext()) {
@@ -197,6 +160,10 @@ public class Bomber extends Entity {
     public boolean touchDeadlyObstacle() {
         for (Entity e : EntityArr.enemies) {
             if (this.intersects(e)) return true;
+        }
+
+        for (Entity f : EntityArr.flames) {
+            if (this.intersects(f)) return true;
         }
 
         return false;

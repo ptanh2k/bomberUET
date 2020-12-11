@@ -33,7 +33,7 @@ public class BombermanGame extends Application {
     private GraphicsContext gc;
     private Canvas canvas;
 
-    private int level = 1;
+    public static int level = 1;
 
     public static boolean gameOver = false;
 
@@ -68,7 +68,6 @@ public class BombermanGame extends Application {
             }
         };
         timer.start();
-//        EntityArr.bombers.add(bomberman);
 
         /**
          * Hanh dong cua bomber
@@ -93,7 +92,6 @@ public class BombermanGame extends Application {
                     if (b.getX() == bomb.getX() && b.getY() == bomb.getY()) {
                         duplicate = true;
                     }
-//                EntityArr.bomberman.putBomb();
                 }
 
                 TimerTask timerTask = new TimerTask() {
@@ -135,7 +133,8 @@ public class BombermanGame extends Application {
             loader.setLocation(getClass().getResource("resources/fxml/EndGame.fxml"));
             Parent EndGameUI = loader.load();
             Scene end_scene = new Scene(EndGameUI);
-            stage.setScene(end_scene);
+            end_stage.setScene(end_scene);
+            end_stage.show();
         }
     }
 

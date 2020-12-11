@@ -10,7 +10,7 @@ public class FlameH extends Flame {
 
     @Override
     public void update() {
-        this.checkEnemy();
+        super.update();
         this.animate += Sprite.DEFAULT_SIZE / 10;
         this.setImg(Sprite.movingSprite(Sprite.explosion_horizontal, Sprite.explosion_horizontal1
                 , Sprite.explosion_horizontal2, animate, Sprite.DEFAULT_SIZE).getFxImage());

@@ -1,5 +1,6 @@
 package uet.oop.bomberman.entities;
 
+import uet.oop.bomberman.BombermanGame;
 import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.graphic.Sprite;
 import javafx.scene.image.Image;
@@ -203,6 +204,7 @@ public class Bomber extends Entity {
 
     protected void bomberDie() {
         this.setAlive(false);
+        BombermanGame.gameOver = true;
         setImg(Sprite.movingSprite(Sprite.bomber_die, Sprite.bomber_die1, Sprite.bomber_die2
                                     , this.animate, Sprite.DEFAULT_SIZE).getFxImage());
     }

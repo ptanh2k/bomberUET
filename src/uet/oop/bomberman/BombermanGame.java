@@ -2,7 +2,11 @@ package uet.oop.bomberman;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -16,6 +20,7 @@ import uet.oop.bomberman.entities.enemy.Enemy;
 import uet.oop.bomberman.graphic.Sprite;
 import uet.oop.bomberman.sound.Sound;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,7 +35,7 @@ public class BombermanGame extends Application {
 
     private int level = 1;
 
-    public boolean gameOver = false;
+    public static boolean gameOver = false;
 
     public static void main(String[] args) {
         Sound.play("soundtrack");
@@ -38,7 +43,7 @@ public class BombermanGame extends Application {
     }
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
         // Tao Canvas
         Map.createMapByLevel(1);
         canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT);
@@ -122,6 +127,16 @@ public class BombermanGame extends Application {
                 }
             }
         });
+
+        if (gameOver) {
+            ActionEvent event = new ActionEvent();
+            Stage end_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("resources/fxml/EndGame.fxml"));
+            Parent EndGameUI = loader.load();
+            Scene end_scene = new Scene(EndGameUI);
+            stage.setScene(end_scene);
+        }
     }
 
     // update

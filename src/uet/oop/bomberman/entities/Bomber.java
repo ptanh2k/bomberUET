@@ -30,8 +30,6 @@ public class Bomber extends Entity {
             if (touchDeadlyObstacle()) {
                 Sound.play("endgame3");
                 bomberDie();
-//                BombermanGame.level = 1;
-//                Map.createMapByLevel(BombermanGame.level);
             }
 
             if (checkPortal()) {
@@ -176,6 +174,7 @@ public class Bomber extends Entity {
         BombermanGame.gameOver = true;
         setImg(Sprite.movingSprite(Sprite.bomber_die, Sprite.bomber_die1, Sprite.bomber_die2
                                     , this.animate, Sprite.DEFAULT_SIZE).getFxImage());
+        Map.createMapByLevel(BombermanGame.level);
     }
 
     @Override

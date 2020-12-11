@@ -16,6 +16,7 @@ public class Map {
 
     public static void createMapByLevel(int level) {
         EntityArr.clearArr();
+        EntityArr.bomberman = new Bomber(1, 1, Sprite.bomber_look_right.getFxImage());
         EntityArr.bombers.add(EntityArr.bomberman);
         try {
             String path = "resources/levels/Level" + level + ".txt";

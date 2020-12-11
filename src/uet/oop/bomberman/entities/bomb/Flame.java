@@ -18,7 +18,7 @@ public abstract class Flame extends Entity {
 
     @Override
     public void update() {
-        checkBrick();
+        checkEnemy();
         checkBomber();
         checkBoundsBomb();
     }
@@ -53,9 +53,10 @@ public abstract class Flame extends Entity {
     }
 
     protected void checkEnemy() {
-
         for (Enemy e : EntityArr.enemies) {
-            if (this.intersects(e)) e.setAlive(false);
+            if (this.intersects(e)) {
+                e.setAlive(false);
+            }
         }
     }
 

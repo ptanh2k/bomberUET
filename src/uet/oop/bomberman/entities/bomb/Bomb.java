@@ -11,10 +11,12 @@ import java.util.*;
 
 public class Bomb extends Entity {
     private int flameLength;
-    private List<Flame> fLeft = new ArrayList<>();
-    private List<Flame> fRight = new ArrayList<>();
-    private List<Flame> fUp = new ArrayList<>();
-    private List<Flame> fDown = new ArrayList<>();
+
+    private final List<Flame> fLeft = new ArrayList<>();
+    private final List<Flame> fRight = new ArrayList<>();
+    private final List<Flame> fUp = new ArrayList<>();
+    private final List<Flame> fDown = new ArrayList<>();
+
     public List<Flame> flames = new ArrayList<>();
 
     private boolean isExploded = false;
@@ -29,13 +31,21 @@ public class Bomb extends Entity {
 
     @Override
     public void update() {
+        animate += Sprite.DEFAULT_SIZE / 10;
         flameLength = EntityArr.bomberman.getFlameLength();
         if (this.isExploded()) {
-            this.animate += Sprite.DEFAULT_SIZE / 10;
             this.setImg(Sprite.movingSprite(Sprite.bomb_exploded, Sprite.bomb_exploded1
                     , Sprite.bomb_exploded2, animate, Sprite.DEFAULT_SIZE).getFxImage());
+            if (this.timerEx == 1) {
+                this.timerEx++;
+                this.addFlame();
+                Sound.play("BOM_11_M");
+            }
         } else {
-            this.animate += Sprite.DEFAULT_SIZE / 10;
+            if (this.timerEx == 0) {
+                this.timerEx++;
+                setTimeExploded();
+            }
             this.setImg(Sprite.movingSprite(Sprite.bomb, Sprite.bomb_1
                     , Sprite.bomb_2, animate, Sprite.DEFAULT_SIZE).getFxImage());
         }
@@ -43,7 +53,6 @@ public class Bomb extends Entity {
 
     public void addFlame() {
         Flame flame;
-        Sound.play("BOM_11_M");
         for (int i = 0; i < flameLength; ++i) {
             flame = new FlameV(getX() / Sprite.SCALED_SIZE, getY() / Sprite.SCALED_SIZE + 1 + i
                     , Sprite.explosion_vertical.getFxImage());
@@ -89,14 +98,6 @@ public class Bomb extends Entity {
         }
     }
 
-    public int getFlameLength() {
-        return flameLength;
-    }
-
-    public void setFlameLength(int flameLength) {
-        this.flameLength = flameLength;
-    }
-
     public boolean isExploded() {
         return isExploded;
     }
@@ -123,19 +124,16 @@ public class Bomb extends Entity {
 
     public void setTimeExploded() {
         Bomb bomb = this;
-
-        TimerTask bombExplode = new TimerTask() {
+        TimerTask bombEx = new TimerTask() {
             @Override
             public void run() {
                 bomb.setExploded(true);
             }
         };
-
         if (!this.isExploded()) {
             Timer timerEx = new Timer();
-            timerEx.schedule(bombExplode, 2000);
+            timerEx.schedule(bombEx, 2000);
         }
-
         TimerTask removeFlame = new TimerTask() {
             @Override
             public void run() {
@@ -144,7 +142,6 @@ public class Bomb extends Entity {
                 EntityArr.removeEnemy();
             }
         };
-
         Timer timer = new Timer();
         timer.schedule(removeFlame, 2500L);
     }

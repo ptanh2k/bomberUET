@@ -33,9 +33,11 @@ public class Bomber extends Entity {
 //                BombermanGame.level = 1;
 //                Map.createMapByLevel(BombermanGame.level);
             }
-        }
-        if (checkPortal()) {
 
+            if (checkPortal()) {
+                BombermanGame.level++;
+                Map.createMapByLevel(BombermanGame.level);
+            }
         }
     }
 

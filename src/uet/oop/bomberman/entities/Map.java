@@ -38,6 +38,7 @@ public class Map {
             for (int i = 0; i < BombermanGame.WIDTH; ++i) {
                 for (int j = 0 ; j < BombermanGame.HEIGHT; ++j) {
                     Brick brick;
+                    Portal portal;
                     Entity object;
                     Balloom balloom;
                     Oneal oneal;
@@ -55,8 +56,8 @@ public class Map {
                     }
                     // create portal
                     if (maps[j][i] == 'x') {
-                        object = new Portal(i, j, Sprite.portal.getFxImage());
-                        EntityArr.grasses.add(object);
+                        portal = new Portal(i, j, Sprite.portal.getFxImage());
+                        EntityArr.portals.add(portal);
                     }
                     // create brick
                     if (maps[j][i] == 'x' || maps[j][i] == '*') {

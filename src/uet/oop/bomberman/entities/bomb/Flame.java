@@ -6,7 +6,6 @@ import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntityArr;
 import uet.oop.bomberman.entities.blocks.Brick;
 import uet.oop.bomberman.entities.enemy.Enemy;
-import uet.oop.bomberman.sound.Sound;
 
 public abstract class Flame extends Entity {
     private boolean isVisible = true;
@@ -19,10 +18,6 @@ public abstract class Flame extends Entity {
         checkEnemy();
         checkBomber();
         checkBoundsBomb();
-    }
-
-    public boolean isVisible() {
-        return isVisible;
     }
 
     public void setVisible(boolean visible) {

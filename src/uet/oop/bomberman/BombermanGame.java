@@ -12,10 +12,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 import uet.oop.bomberman.entities.Bomber;
+import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntityArr;
 import uet.oop.bomberman.entities.Map;
 import uet.oop.bomberman.entities.blocks.Brick;
 import uet.oop.bomberman.entities.bomb.Bomb;
+import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.entities.enemy.Enemy;
 import uet.oop.bomberman.graphic.Sprite;
 import uet.oop.bomberman.sound.Sound;
@@ -82,7 +84,12 @@ public class BombermanGame extends Application {
             } else if (event.getCode().toString().equals("DOWN")) {
                 EntityArr.bomberman.goDown();
             }
-            // Đặt bom
+
+            //For testing
+            else if (event.getCode().toString().equals("C")) {
+                EntityArr.enemies.clear();
+            }
+            // Place bomb
             else if (event.getCode().toString().equals("SPACE")) {
                 Sound.play("BOM_SET");
                 Bomb bomb = new Bomb(EntityArr.bomberman.getX() / Sprite.SCALED_SIZE
@@ -130,7 +137,7 @@ public class BombermanGame extends Application {
             ActionEvent event = new ActionEvent();
             Stage end_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("resources/fxml/EndGame.fxml"));
+            loader.setLocation(getClass().getResource("/fxml/EndGame.fxml"));
             Parent EndGameUI = loader.load();
             Scene end_scene = new Scene(EndGameUI);
             end_stage.setScene(end_scene);
@@ -145,14 +152,16 @@ public class BombermanGame extends Application {
         EntityArr.bomberman.bombs.forEach(Bomb::update);
         EntityArr.bricks.forEach(Brick::update);
         // update flame
-        EntityArr.bomberman.bombs.forEach(g -> g.getfUp().forEach(g1 -> g1.update()));
-        EntityArr.bomberman.bombs.forEach(g -> g.getfDown().forEach(g1 -> g1.update()));
-        EntityArr.bomberman.bombs.forEach(g -> g.getfLeft().forEach(g1 -> g1.update()));
-        EntityArr.bomberman.bombs.forEach(g -> g.getfRight().forEach(g1 -> g1.update()));
+        EntityArr.bomberman.bombs.forEach(g -> g.getfUp().forEach(Flame::update));
+        EntityArr.bomberman.bombs.forEach(g -> g.getfDown().forEach(Flame::update));
+        EntityArr.bomberman.bombs.forEach(g -> g.getfLeft().forEach(Flame::update));
+        EntityArr.bomberman.bombs.forEach(g -> g.getfRight().forEach(Flame::update));
         // update item
         EntityArr.items.forEach(g -> {
             if (g.isVisible()) g.update();
         });
+
+        EntityArr.portals.forEach(Entity::update);
     }
 
     // vẽ

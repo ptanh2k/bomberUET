@@ -96,7 +96,7 @@ public abstract class Enemy extends Entity {
     }
 
     public int sameColumn() {
-        if (getY() > EntityArr.bomberman.getX()) {
+        if (getY() > EntityArr.bomberman.getY()) {
             return UP;
         }
         else if (getY() < EntityArr.bomberman.getY()) {

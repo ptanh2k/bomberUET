@@ -30,7 +30,7 @@ public class Doll extends Enemy {
                 }
             } else {
                 this.x += this.getSpeedX();
-                if (distanceX <= Sprite.SCALED_SIZE * 10 && distanceY <= Sprite.SCALED_SIZE * 10) {
+                if (distanceX <= Sprite.SCALED_SIZE * 8 && distanceY <= Sprite.SCALED_SIZE * 8) {
                     this.chaseBomber();
                     if (checkBoundsBrick() || checkBoundsBomb() || checkBoundsWall()) {
                         this.x -= this.getSpeedX();

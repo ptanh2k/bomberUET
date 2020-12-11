@@ -21,7 +21,7 @@ public abstract class Entity {
         this.x = xUnit * Sprite.SCALED_SIZE;
         this.y = yUnit * Sprite.SCALED_SIZE;
         this.img = img;
-        this.animate = this.x;
+        this.animate = Sprite.DEFAULT_SIZE;
     }
 
     public void render(GraphicsContext gc) {

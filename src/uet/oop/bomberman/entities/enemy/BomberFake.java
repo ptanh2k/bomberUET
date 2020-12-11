@@ -17,6 +17,7 @@ public class BomberFake extends Enemy {
             if (this.getSpeedX() == 0) {
                 this.y += this.getSpeedY();
                 if (distanceX <= Sprite.SCALED_SIZE * 5 && distanceY <= Sprite.SCALED_SIZE * 5) {
+                    this.setSpeed(1);
                     this.chaseBomber();
                     if (checkBoundsBomb() || checkBoundsWall()) {
                         this.y -= this.getSpeedY();
@@ -33,6 +34,7 @@ public class BomberFake extends Enemy {
             } else {
                 this.x += this.getSpeedX();
                 if (distanceX <= Sprite.SCALED_SIZE * 5 && distanceY <= Sprite.SCALED_SIZE * 5) {
+                    this.setSpeed(1);
                     this.chaseBomber();
                     if (checkBoundsBomb() || checkBoundsWall()) {
                         this.x -= this.getSpeedX();

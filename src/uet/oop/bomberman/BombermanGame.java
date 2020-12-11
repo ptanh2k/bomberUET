@@ -8,14 +8,11 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 import uet.oop.bomberman.entities.Bomber;
-import uet.oop.bomberman.entities.Map;
-import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntityArr;
+import uet.oop.bomberman.entities.Map;
 import uet.oop.bomberman.entities.blocks.Brick;
 import uet.oop.bomberman.entities.bomb.Bomb;
-import uet.oop.bomberman.entities.enemy.Balloom;
 import uet.oop.bomberman.entities.enemy.Enemy;
-import uet.oop.bomberman.entities.enemy.Oneal;
 import uet.oop.bomberman.graphic.Sprite;
 import uet.oop.bomberman.sound.Sound;
 
@@ -30,6 +27,8 @@ public class BombermanGame extends Application {
 
     private GraphicsContext gc;
     private Canvas canvas;
+
+    private int level = 1;
 
     public boolean gameOver = false;
 

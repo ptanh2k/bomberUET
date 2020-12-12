@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
-import uet.oop.bomberman.entities.Bomber;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntityArr;
 import uet.oop.bomberman.entities.Map;
@@ -133,16 +132,16 @@ public class BombermanGame extends Application {
             }
         });
 
-        if (gameOver) {
-            ActionEvent event = new ActionEvent();
-            Stage end_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/EndGame.fxml"));
-            Parent EndGameUI = loader.load();
-            Scene end_scene = new Scene(EndGameUI);
-            end_stage.setScene(end_scene);
-            end_stage.show();
-        }
+//        if (gameOver) {
+//            ActionEvent event = new ActionEvent();
+//            Stage end_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(getClass().getResource("/fxml/EndGame.fxml"));
+//            Parent EndGameUI = loader.load();
+//            Scene end_scene = new Scene(EndGameUI);
+//            end_stage.setScene(end_scene);
+//            end_stage.show();
+//        }
     }
 
     // update
@@ -173,8 +172,8 @@ public class BombermanGame extends Application {
             }
         });
         EntityArr.walls.forEach(g -> g.render(gc));
-        EntityArr.bricks.forEach(g -> g.render(gc));
         EntityArr.portals.forEach(g -> g.render(gc));
+        EntityArr.bricks.forEach(g -> g.render(gc));
         EntityArr.enemies.forEach(g -> {
             if (g.isAlive()) g.render(gc);
         });

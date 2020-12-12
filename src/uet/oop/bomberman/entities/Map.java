@@ -47,7 +47,8 @@ public class Map {
                     Minvo minvo;
                     Kondoria kondoria;
                     BomberFake bomberFake;
-                    // create wall and grass
+
+                    // Create wall and grass
                     if (j == 0 || j == BombermanGame.HEIGHT - 1 || i == 0 || i == BombermanGame.WIDTH - 1 || maps[j][i] == '#') {
                         object = new Wall(i, j, Sprite.wall.getFxImage());
                         EntityArr.walls.add(object);
@@ -55,12 +56,14 @@ public class Map {
                         object = new Grass(i, j, Sprite.grass.getFxImage());
                         EntityArr.grasses.add(object);
                     }
-                    // create portal
+
+                    // Create portal
                     if (maps[j][i] == 'x') {
                         portal = new Portal(i, j, Sprite.portal.getFxImage());
                         EntityArr.portals.add(portal);
                     }
-                    // create brick
+
+                    // Create brick
                     if (maps[j][i] == 'x' || maps[j][i] == '*') {
                         brick = new Brick(i, j, Sprite.brick.getFxImage());
                         EntityArr.bricks.add(brick);

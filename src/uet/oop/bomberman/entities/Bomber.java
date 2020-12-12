@@ -161,11 +161,6 @@ public class Bomber extends Entity {
         for (Entity e : EntityArr.enemies) {
             if (this.intersects(e)) return true;
         }
-
-        for (Entity f : EntityArr.flames) {
-            if (this.intersects(f)) return true;
-        }
-
         return false;
     }
 

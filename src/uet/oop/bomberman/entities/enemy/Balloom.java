@@ -29,9 +29,9 @@ public class Balloom extends Enemy {
                 }
             }
         } else {
-            this.setImg(Sprite.movingSprite(Sprite.enemy_die1, Sprite.enemy_die2, Sprite.enemy_die3
-                    , this.animate, Sprite.DEFAULT_SIZE).getFxImage());
+            this.img = Sprite.baloom_die.getFxImage();
         }
+
         if (isAlive()) {
             if (this.getSpeedX() > 0) {
                 this.img = Sprite.movingSprite(Sprite.baloom_right1, Sprite.baloom_right2, Sprite.baloom_right3
@@ -47,8 +47,7 @@ public class Balloom extends Enemy {
                         , this.y, Sprite.DEFAULT_SIZE).getFxImage();
             }
         } else {
-            this.setImg(Sprite.movingSprite(Sprite.enemy_die1, Sprite.enemy_die2, Sprite.enemy_die3
-                    , this.y, Sprite.DEFAULT_SIZE).getFxImage());
+            this.img = Sprite.baloom_die.getFxImage();
         }
     }
 }

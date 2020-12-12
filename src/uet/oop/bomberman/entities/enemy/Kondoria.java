@@ -29,8 +29,7 @@ public class Kondoria extends Enemy {
                 }
             }
         } else {
-            this.setImg(Sprite.movingSprite(Sprite.enemy_die1, Sprite.enemy_die2, Sprite.enemy_die3
-                    , this.x, Sprite.DEFAULT_SIZE).getFxImage());
+            this.img = Sprite.kondoria_die.getFxImage();
         }
         if (isAlive()) {
             if (this.getSpeedX() > 0) {

@@ -52,7 +52,7 @@ public class Bomber extends Entity {
                 break;
             }
         }
-        setImg(Sprite.movingSprite(Sprite.bomber_look_up, Sprite.bomber_move_up1, Sprite.bomber_move_up2, this.getY(), Sprite.DEFAULT_SIZE).getFxImage());
+        setImg(Sprite.movingSprite(Sprite.bomber_look_up, Sprite.bomber_move_up1, Sprite.bomber_move_up2, this.getY(), 80).getFxImage());
     }
 
     public void goRight() {
@@ -69,7 +69,7 @@ public class Bomber extends Entity {
                 break;
             }
         }
-        setImg(Sprite.movingSprite(Sprite.bomber_look_right, Sprite.bomber_move_right1, Sprite.bomber_move_right2, this.getX(), Sprite.DEFAULT_SIZE).getFxImage());
+        setImg(Sprite.movingSprite(Sprite.bomber_look_right, Sprite.bomber_move_right1, Sprite.bomber_move_right2, this.getX(), 80).getFxImage());
     }
 
     public void goDown() {
@@ -85,7 +85,7 @@ public class Bomber extends Entity {
                 break;
             }
         }
-        setImg(Sprite.movingSprite(Sprite.bomber_look_down, Sprite.bomber_move_down1, Sprite.bomber_move_down2, this.getY(), Sprite.DEFAULT_SIZE).getFxImage());
+        setImg(Sprite.movingSprite(Sprite.bomber_look_down, Sprite.bomber_move_down1, Sprite.bomber_move_down2, this.getY(), 80).getFxImage());
     }
 
     public void goLeft() {
@@ -101,7 +101,7 @@ public class Bomber extends Entity {
                 break;
             }
         }
-        setImg(Sprite.movingSprite(Sprite.bomber_look_left, Sprite.bomber_move_left1, Sprite.bomber_move_left2, this.getX(), Sprite.DEFAULT_SIZE).getFxImage());
+        setImg(Sprite.movingSprite(Sprite.bomber_look_left, Sprite.bomber_move_left1, Sprite.bomber_move_left2, this.getX(), 80).getFxImage());
     }
 
     public void setSpeed(int speed) {
